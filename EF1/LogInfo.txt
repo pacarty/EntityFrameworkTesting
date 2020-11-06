@@ -1,0 +1,24 @@
+Class: EF1.Program
+Method: Void Main(System.String[])
+Class: Microsoft.Extensions.Hosting.HostBuilder
+Method: Microsoft.Extensions.Hosting.IHost Build()
+Class: Microsoft.Extensions.Hosting.HostBuilder
+Method: Void CreateServiceProvider()
+Class: Microsoft.AspNetCore.Hosting.GenericWebHostBuilder+<>c__DisplayClass12_0
+Method: Void <UseStartup>b__0(Microsoft.Extensions.Hosting.HostBuilderContext, Microsoft.Extensions.DependencyInjection.IServiceCollection)
+Class: Microsoft.AspNetCore.Hosting.GenericWebHostBuilder
+Method: Void UseStartup(System.Type, Microsoft.Extensions.Hosting.HostBuilderContext, Microsoft.Extensions.DependencyInjection.IServiceCollection)
+Class: Microsoft.AspNetCore.Hosting.ConfigureServicesBuilder+<>c__DisplayClass8_0
+Method: System.IServiceProvider <Build>b__0(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+Class: Microsoft.AspNetCore.Hosting.ConfigureServicesBuilder
+Method: System.IServiceProvider Invoke(System.Object, Microsoft.Extensions.DependencyInjection.IServiceCollection)
+Class: Microsoft.AspNetCore.Hosting.ConfigureServicesBuilder+<>c__DisplayClass9_0
+Method: System.IServiceProvider <Invoke>g__Startup|0(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+Class: Microsoft.AspNetCore.Hosting.ConfigureServicesBuilder
+Method: System.IServiceProvider InvokeCore(System.Object, Microsoft.Extensions.DependencyInjection.IServiceCollection)
+Class: System.Reflection.RuntimeMethodInfo
+Method: System.Object Invoke(System.Object, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object[], System.Globalization.CultureInfo)
+Class: System.RuntimeMethodHandle
+Method: System.Object InvokeMethod(System.Object, System.Object[], System.Signature, Boolean, Boolean)
+Class: EF1.Startup
+Method: Void ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)

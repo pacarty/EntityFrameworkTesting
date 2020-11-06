@@ -27,6 +27,17 @@ namespace EF1
         {
             services.AddCors();
             services.AddControllers();
+           
+            System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
+
+            for (int i = stackTrace.FrameCount - 1; i >= 0; i--)
+            {
+                using (System.IO.StreamWriter sw = System.IO.File.AppendText("LogInfo.txt"))
+                {
+                    sw.WriteLine("Class: " + stackTrace.GetFrame(i).GetMethod().DeclaringType);
+                    sw.WriteLine("Method: " + stackTrace.GetFrame(i).GetMethod());
+                }
+            }            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
