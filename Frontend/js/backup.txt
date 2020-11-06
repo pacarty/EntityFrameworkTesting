@@ -1,0 +1,74 @@
+function doThing() {
+    performRequest("GET", 200, "https://localhost:44396/api/example", function(callback) {
+        var stuff = JSON.parse(callback);
+        console.log(stuff);
+
+        var output = "";
+
+        for (var i = 0; i < stuff.length; i++) {
+            output += "<strong>ID:</strong> " + stuff[i].exampleId +
+            ", <strong>Name:</strong> " + stuff[i].name +
+            ", <strong>Description:</strong> " + stuff[i].description +
+            "<br><br>";
+        }
+        
+        document.getElementById("demo").innerHTML = output;
+    });
+}
+
+function performRequest(method, status, url, data) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(method, url);
+
+    if (data) {
+        xhttp.setRequestHeader('Content-Type', 'application/json');
+    }
+
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == status) {
+            callback(xhttp.responseText);
+        }
+    }
+
+    if (data) {
+        xhttp.send(JSON.stringify(data));
+    } else {
+        xhttp.send();
+    }
+    
+}
+
+function loadDoc(callback) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "https://localhost:44396/api/example", true);
+
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            callback(xhttp.responseText);
+        }
+    }
+    
+    xhttp.send();
+}
+
+function postDoc(callback) {
+    var xhttp = new XMLHttpRequest();
+    var data = {"ExampleId": 1, "Name": "Gary", "Description": "Dickhead"};
+
+    xhttp.open("POST", "https://localhost:44396/api/example", true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 201) {
+            callback(xhttp.responseText);
+        }
+    }
+   
+    xhttp.send(JSON.stringify(data));
+}
+
+function doOtherThing() {
+    postDoc(function(callback) {
+        console.log(callback);
+    });
+}
